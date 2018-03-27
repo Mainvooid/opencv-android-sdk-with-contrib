@@ -8,6 +8,7 @@ opencv341 android sdk with contrib341 module build on windows.
 
 ## A templet build.gradle for armeabi-v7a with NDK
 
+```
 apply plugin: 'com.android.library'
 android {
     ...
@@ -35,3 +36,4 @@ android {
     }
 }
 ...
+```
