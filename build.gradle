@@ -127,23 +127,17 @@ dependencies {
 }
 
 
-
-/* A templet build.gradle for armeabi-v7a with NDK
-
+/*使用ndk的配置模板
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion 23
-
+    ...
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        ...
         //配置NDK信息
         ndk {
             moduleName "opencv3"
             ldLibs "log", "jnigraphics", "m", "z"
-            abiFilters "armeabi-v7a"
+            abiFilters "armeabi-v7a","x86"
         }
         //配置SO文件存放路径
         sourceSets {
@@ -153,12 +147,6 @@ android {
             }
         }
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
     //设置构建脚本路径，会自动索引同目录下的Application.mk
     externalNativeBuild {
         ndkBuild {
@@ -166,8 +154,5 @@ android {
         }
     }
 }
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:23.4.0'
-}
+...
 */
