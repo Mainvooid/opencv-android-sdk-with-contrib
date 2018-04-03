@@ -134,9 +134,9 @@
 /* #undef HAVE_NVCUVENC */
 
 /* OpenCL Support */
-/* #undef HAVE_OPENCL */
+#define HAVE_OPENCL
 /* #undef HAVE_OPENCL_STATIC */
-/* #undef HAVE_OPENCL_SVM */
+#define HAVE_OPENCL_SVM
 
 /* OpenEXR codec */
 #define HAVE_OPENEXR

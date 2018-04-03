@@ -25,7 +25,7 @@ ANDROID_EXAMPLES_WITH_LIBS:BOOL=OFF
 ANDROID_EXECUTABLE:FILEPATH=D:/ProgramData/Android/SDK/tools/android.bat
 
 //Prevent cmake from working under cygwin and using cygwin tools
-ANDROID_FORBID_SYGWIN:BOOL=TRUE
+ANDROID_FORBID_SYGWIN:BOOL=ON
 
 //Use 32-bit ARM instructions instead of Thumb-1
 ANDROID_FORCE_ARM_BUILD:BOOL=OFF
@@ -41,7 +41,7 @@ ANDROID_GOLD_LINKER:BOOL=ON
 ANDROID_NATIVE_API_LEVEL:STRING=21
 
 //Try to use 64-bit compiler toolchain
-ANDROID_NDK_HOST_X64:BOOL=1
+ANDROID_NDK_HOST_X64:BOOL=ON
 
 //The inner layout of NDK
 ANDROID_NDK_LAYOUT:STRING=
@@ -52,14 +52,11 @@ ANDROID_NOEXECSTACK:BOOL=ON
 //Show all undefined symbols as linker errors
 ANDROID_NO_UNDEFINED:BOOL=ON
 
-//No help, variable specified on the command line.
-ANDROID_PLATFORM_ID:UNINITIALIZED=2
-
 //Enables RELRO - a memory corruption mitigation technique
 ANDROID_RELRO:BOOL=ON
 
-//No help, variable specified on the command line.
-ANDROID_SDK_TARGET:UNINITIALIZED=23
+//Android SDK target for the OpenCV Java API and samples
+ANDROID_SDK_TARGET:STRING=android-23
 
 //Allows or disallows undefined symbols in shared libraries
 ANDROID_SO_UNDEFINED:BOOL=ON
@@ -70,9 +67,6 @@ ANDROID_STL:STRING=gnustl_static
 //automatically configure rtti and exceptions support based on
 // C++ runtime
 ANDROID_STL_FORCE_FEATURES:BOOL=ON
-
-//No help, variable specified on the command line.
-ANDROID_TOOLCHAIN_NAME:UNINITIALIZED=arm-linux-androideabi-4.9
 
 //Path to a program.
 ANT_EXECUTABLE:FILEPATH=D:/ProgramData/apache-ant-1.10.2/bin/ant.bat
@@ -458,10 +452,10 @@ CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //If set, runtime paths are not added when installing shared libraries,
 // but are added when building.
-CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
+CMAKE_SKIP_INSTALL_RPATH:BOOL=OFF
 
 //If set, runtime paths are not added when using shared libraries.
-CMAKE_SKIP_RPATH:BOOL=TRUE
+CMAKE_SKIP_RPATH:BOOL=ON
 
 //Flags used by the linker during the creation of static libraries
 // during all build types.
@@ -486,14 +480,11 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //strip
 CMAKE_STRIP:PATH=D:/ProgramData/Android/SDK/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-strip.exe
 
-//No help, variable specified on the command line.
-CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=D:\ProgramData\opencv341-android-sdk-with-contrib\opencv\sources\platforms\android\android.toolchain.cmake
-
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
-CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+CMAKE_VERBOSE_MAKEFILE:BOOL=OFF
 
 //Enable to build Debian packages
 CPACK_BINARY_DEB:BOOL=OFF
@@ -547,7 +538,7 @@ CPACK_SOURCE_ZIP:BOOL=OFF
 CPUFEATURES_ROOT:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/3rdparty/cpufeatures
 
 //Specify list of enabled baseline CPU optimizations
-CPU_BASELINE:STRING=DETECT
+CPU_BASELINE:STRING=
 
 //Specify list of forbidden baseline CPU optimizations
 CPU_BASELINE_DISABLE:STRING=;VFPV3;NEON
@@ -684,11 +675,17 @@ LIBRARY_OUTPUT_PATH_ROOT:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/
 //Path to a library.
 M_LIBRARY:FILEPATH=D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-21/arch-arm/usr/lib/libm.so
 
-//The path to ccache binary
-NDK_CCACHE:FILEPATH=NDK_CCACHE-NOTFOUND
-
 //The directory containing a CMake configuration file for OGRE.
 OGRE_DIR:PATH=OGRE_DIR-NOTFOUND
+
+//OpenCL library is found
+OPENCL_FOUND:BOOL=ON
+
+//OpenCL include directory
+OPENCL_INCLUDE_DIR:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/3rdparty/include/opencl/1.2
+
+//OpenCL library
+OPENCL_LIBRARY:STRING=
 
 //Where to create the platform-dependant cvconfig.h
 OPENCV_CONFIG_FILE_INCLUDE_DIR:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build
@@ -773,7 +770,7 @@ TBB_VER_FILE:FILEPATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/b
 TINYDNN_INCLUDE_DIR:PATH=TINYDNN_INCLUDE_DIR-NOTFOUND
 
 //Use win32 IO system (Microsoft Windows only)
-USE_WIN32_FILEIO:BOOL=FALSE
+USE_WIN32_FILEIO:BOOL=OFF
 
 //Use NVidia carotene acceleration library for ARM platform
 WITH_CAROTENE:BOOL=ON
@@ -819,10 +816,10 @@ WITH_JPEG:BOOL=ON
 WITH_NVCUVID:BOOL=ON
 
 //Include OpenCL Runtime support
-WITH_OPENCL:BOOL=OFF
+WITH_OPENCL:BOOL=ON
 
 //Include OpenCL Shared Virtual Memory support
-WITH_OPENCL_SVM:BOOL=OFF
+WITH_OPENCL_SVM:BOOL=ON
 
 //Include ILM support via OpenEXR
 WITH_OPENEXR:BOOL=ON
@@ -2163,6 +2160,10 @@ OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_120_i:INTE
 OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_48_i:INTERNAL=e8d0dcd54d1bcfdc29203d011a797179
 OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_64_i:INTERNAL=7126a5d9a8884ebca5aea5d63d677225
 OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_80_i:INTERNAL=7cd47228edec52b6d82f46511af325c5
+//ADVANCED property for variable: OPENCL_INCLUDE_DIR
+OPENCL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENCL_LIBRARY
+OPENCL_LIBRARY-ADVANCED:INTERNAL=1
 OPENCV_ANDROID_LIB_DIR:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/android_sdk
 OPENCV_DEPHELPER:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/CMakeFiles/dephelper
 OPENCV_JAVA_BINDINGS_DIR:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/java_bindings_generator
@@ -3771,6 +3772,8 @@ ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
 ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+__VALID_OPENCL:INTERNAL=FALSE
 //Result of TEST_BIG_ENDIAN
 bigendian:INTERNAL=0
 //CHECK_TYPE_SIZE: INT16 unknown

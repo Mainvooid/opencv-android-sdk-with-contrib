@@ -69,7 +69,7 @@ ANDROID_STL_FORCE_FEATURES:BOOL=ON
 ANT_EXECUTABLE:FILEPATH=D:/ProgramData/apache-ant-1.10.2/bin/ant.bat
 
 //Build examples for Android platform
-BUILD_ANDROID_EXAMPLES:BOOL=OFF
+BUILD_ANDROID_EXAMPLES:BOOL=ON
 
 //Build OpenCV Manager for Google Play
 BUILD_ANDROID_SERVICE:BOOL=OFF
@@ -112,7 +112,7 @@ BUILD_OPENEXR:BOOL=ON
 BUILD_PACKAGE:BOOL=ON
 
 //Build performance tests
-BUILD_PERF_TESTS:BOOL=OFF
+BUILD_PERF_TESTS:BOOL=ON
 
 //Build libpng from source
 BUILD_PNG:BOOL=ON
@@ -484,7 +484,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //strip
 CMAKE_STRIP:PATH=D:/ProgramData/Android/SDK/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/bin/i686-linux-android-strip.exe
 
-CMAKE_TOOLCHAIN_FILE:FILEPATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/platforms/android/android.toolchain.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/platforms/android/android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -760,10 +761,19 @@ LIBRARY_OUTPUT_PATH:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/openc
 LIBRARY_OUTPUT_PATH_ROOT:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build
 
 //Path to a library.
-M_LIBRARY:FILEPATH=D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-21/arch-x86/usr/lib/libm.so
+M_LIBRARY:FILEPATH=D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-9/arch-x86/usr/lib/libm.so
 
 //The directory containing a CMake configuration file for OGRE.
 OGRE_DIR:PATH=OGRE_DIR-NOTFOUND
+
+//OpenCL library is found
+OPENCL_FOUND:BOOL=ON
+
+//OpenCL include directory
+OPENCL_INCLUDE_DIR:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/3rdparty/include/opencl/1.2
+
+//OpenCL library
+OPENCL_LIBRARY:STRING=
 
 //Where to create the platform-dependant cvconfig.h
 OPENCV_CONFIG_FILE_INCLUDE_DIR:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build
@@ -782,7 +792,7 @@ OPENCV_ENABLE_NONFREE:BOOL=OFF
 OPENCV_EXTRA_MODULES_PATH:PATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules
 
 //Timestamp of OpenCV build configuration
-OPENCV_TIMESTAMP:STRING=2018-03-28T12:27:24Z
+OPENCV_TIMESTAMP:STRING=2018-04-03T06:52:55Z
 
 //Treat warnings as errors
 OPENCV_WARNINGS_ARE_ERRORS:BOOL=OFF
@@ -842,9 +852,6 @@ PYTHON3_NUMPY_INCLUDE_DIRS:PATH=
 PYTHON3_PACKAGES_PATH:PATH=
 
 //Path to a file.
-TBB_VER_FILE:FILEPATH=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/tbb/tbb-2018_U1/include/tbb/tbb_stddef.h
-
-//Path to a file.
 TINYDNN_INCLUDE_DIR:PATH=TINYDNN_INCLUDE_DIR-NOTFOUND
 
 //Use win32 IO system (Microsoft Windows only)
@@ -861,7 +868,7 @@ WITH_CPUFEATURES:BOOL=ON
 WITH_CUBLAS:BOOL=ON
 
 //Include NVidia Cuda Runtime support
-WITH_CUDA:BOOL=OFF
+WITH_CUDA:BOOL=ON
 
 //Include NVidia Cuda Fast Fourier Transform (FFT) library support
 WITH_CUFFT:BOOL=ON
@@ -879,7 +886,7 @@ WITH_HALIDE:BOOL=OFF
 WITH_INF_ENGINE:BOOL=OFF
 
 //Include Intel IPP support
-WITH_IPP:BOOL=OFF
+WITH_IPP:BOOL=ON
 
 //Include Intel ITT support
 WITH_ITT:BOOL=ON
@@ -894,10 +901,10 @@ WITH_JPEG:BOOL=ON
 WITH_NVCUVID:BOOL=ON
 
 //Include OpenCL Runtime support
-WITH_OPENCL:BOOL=OFF
+WITH_OPENCL:BOOL=ON
 
 //Include OpenCL Shared Virtual Memory support
-WITH_OPENCL_SVM:BOOL=OFF
+WITH_OPENCL_SVM:BOOL=ON
 
 //Include ILM support via OpenEXR
 WITH_OPENEXR:BOOL=ON
@@ -918,7 +925,7 @@ WITH_PROTOBUF:BOOL=ON
 WITH_PTHREADS_PF:BOOL=ON
 
 //Include Intel TBB support
-WITH_TBB:BOOL=ON
+WITH_TBB:BOOL=OFF
 
 //Include TIFF support
 WITH_TIFF:BOOL=ON
@@ -927,13 +934,13 @@ WITH_TIFF:BOOL=ON
 WITH_WEBP:BOOL=ON
 
 //Path to a file.
-ZLIB_INCLUDE_DIR:PATH=D:/ProgramData/Android/SDK/ndk-bundle/sysroot/usr/include
+ZLIB_INCLUDE_DIR:PATH=D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-9/arch-x86/usr/include
 
 //Path to a library.
 ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-ZLIB_LIBRARY_RELEASE:FILEPATH=D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-21/arch-x86/usr/lib/libz.so
+ZLIB_LIBRARY_RELEASE:FILEPATH=D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-9/arch-x86/usr/lib/libz.so
 
 //support for CCITT Group 3 & 4 algorithms
 ccitt:BOOL=ON
@@ -945,7 +952,7 @@ compile_java_tutorials_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-wi
 compile_java_tutorials_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/samples/java/tutorial_code
 
 //Dependencies for the target
-detection_based_tracker_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;opencv_java;
+detection_based_tracker_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;ippiw;general;ippicv;general;opencv_java;
 
 //Value Computed by CMake
 example-15-puzzle_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/samples/android/15-puzzle
@@ -997,6 +1004,15 @@ example-tutorial-3-cameracontrol_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-andr
 
 //The directory containing a CMake configuration file for gflags.
 gflags_DIR:PATH=gflags_DIR-NOTFOUND
+
+//Value Computed by CMake
+ippiw_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/ippiw
+
+//Dependencies for target
+ippiw_LIB_DEPENDS:STATIC=
+
+//Value Computed by CMake
+ippiw_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/ippicv/ippiw_lnx
 
 //Value Computed by CMake
 ittnotify_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/ittnotify
@@ -1074,7 +1090,7 @@ lzw:BOOL=ON
 mdi:BOOL=ON
 
 //Dependencies for the target
-mixed_sample_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;opencv_java;
+mixed_sample_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;ippiw;general;ippicv;general;opencv_java;
 
 //support for NeXT 2-bit RLE algorithm
 next:BOOL=ON
@@ -1086,7 +1102,7 @@ old-jpeg:BOOL=OFF
 opencv_aruco_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/aruco
 
 //Dependencies for the target
-opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_aruco_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/aruco
@@ -1095,7 +1111,7 @@ opencv_aruco_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib
 opencv_bgsegm_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/bgsegm
 
 //Dependencies for the target
-opencv_bgsegm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_bgsegm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_bgsegm_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/bgsegm
@@ -1104,7 +1120,7 @@ opencv_bgsegm_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contri
 opencv_bioinspired_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/bioinspired
 
 //Dependencies for the target
-opencv_bioinspired_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;tbb;
+opencv_bioinspired_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_bioinspired_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/bioinspired
@@ -1113,7 +1129,7 @@ opencv_bioinspired_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-c
 opencv_calib3d_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/calib3d
 
 //Dependencies for the target
-opencv_calib3d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;tbb;
+opencv_calib3d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_calib3d_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/calib3d
@@ -1122,7 +1138,7 @@ opencv_calib3d_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contr
 opencv_ccalib_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/ccalib
 
 //Dependencies for the target
-opencv_ccalib_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_ccalib_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_ccalib_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/ccalib
@@ -1131,7 +1147,7 @@ opencv_ccalib_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contri
 opencv_core_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/core
 
 //Dependencies for the target
-opencv_core_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;tbb;general;z;general;libcpufeatures;general;ittnotify;
+opencv_core_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;ippiw;general;ippicv;general;z;general;libcpufeatures;general;ittnotify;
 
 //Value Computed by CMake
 opencv_core_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/core
@@ -1140,7 +1156,7 @@ opencv_core_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/
 opencv_datasets_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/datasets
 
 //Dependencies for the target
-opencv_datasets_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_text;general;dl;general;m;general;log;general;tbb;
+opencv_datasets_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_text;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_datasets_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/datasets
@@ -1149,7 +1165,7 @@ opencv_datasets_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-cont
 opencv_dnn_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/dnn
 
 //Dependencies for the target
-opencv_dnn_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;general;libprotobuf;
+opencv_dnn_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;general;libprotobuf;
 
 //Add performance tests of Caffe framework
 opencv_dnn_PERF_CAFFE:BOOL=OFF
@@ -1164,7 +1180,7 @@ opencv_dnn_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/o
 opencv_dnn_objdetect_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/dnn_objdetect
 
 //Dependencies for the target
-opencv_dnn_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;tbb;
+opencv_dnn_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_dnn_objdetect_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/dnn_objdetect
@@ -1173,7 +1189,7 @@ opencv_dnn_objdetect_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with
 opencv_dpm_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/dpm
 
 //Dependencies for the target
-opencv_dpm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_objdetect;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;tbb;
+opencv_dpm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_objdetect;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_dpm_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/dpm
@@ -1182,7 +1198,7 @@ opencv_dpm_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/o
 opencv_face_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/face
 
 //Dependencies for the target
-opencv_face_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_plot;general;opencv_video;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_text;general;opencv_datasets;general;opencv_tracking;general;dl;general;m;general;log;general;tbb;
+opencv_face_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_plot;general;opencv_video;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_text;general;opencv_datasets;general;opencv_tracking;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_face_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/face
@@ -1191,7 +1207,7 @@ opencv_face_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/
 opencv_features2d_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/features2d
 
 //Dependencies for the target
-opencv_features2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;tbb;
+opencv_features2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_features2d_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/features2d
@@ -1200,7 +1216,7 @@ opencv_features2d_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-co
 opencv_flann_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/flann
 
 //Dependencies for the target
-opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;tbb;
+opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_flann_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/flann
@@ -1209,7 +1225,7 @@ opencv_flann_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib
 opencv_fuzzy_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/fuzzy
 
 //Dependencies for the target
-opencv_fuzzy_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_fuzzy_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_fuzzy_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/fuzzy
@@ -1218,7 +1234,7 @@ opencv_fuzzy_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib
 opencv_hfs_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/hfs
 
 //Dependencies for the target
-opencv_hfs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_hfs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_hfs_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/hfs
@@ -1227,7 +1243,7 @@ opencv_hfs_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/o
 opencv_highgui_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/highgui
 
 //Dependencies for the target
-opencv_highgui_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;dl;general;m;general;log;general;tbb;
+opencv_highgui_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_highgui_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/highgui
@@ -1236,7 +1252,7 @@ opencv_highgui_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contr
 opencv_img_hash_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/img_hash
 
 //Dependencies for the target
-opencv_img_hash_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_img_hash_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_img_hash_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/img_hash
@@ -1245,7 +1261,7 @@ opencv_img_hash_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-cont
 opencv_imgcodecs_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/imgcodecs
 
 //Dependencies for the target
-opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;general;z;general;libjpeg;general;libwebp;general;libpng;general;libtiff;general;libjasper;general;IlmImf;
+opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;general;z;general;libjpeg;general;libwebp;general;libpng;general;libtiff;general;libjasper;general;IlmImf;
 
 //Value Computed by CMake
 opencv_imgcodecs_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/imgcodecs
@@ -1254,7 +1270,7 @@ opencv_imgcodecs_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-con
 opencv_imgproc_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/imgproc
 
 //Dependencies for the target
-opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;tbb;
+opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_imgproc_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/imgproc
@@ -1263,7 +1279,7 @@ opencv_imgproc_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contr
 opencv_java_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/java/jni
 
 //Dependencies for the target
-opencv_java_LIB_DEPENDS:STATIC=general;-Wl,-whole-archive;general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_phase_unwrapping;general;opencv_photo;general;opencv_plot;general;opencv_video;general;opencv_xphoto;general;opencv_dnn;general;opencv_img_hash;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_bioinspired;general;opencv_features2d;general;opencv_text;general;opencv_calib3d;general;opencv_datasets;general;opencv_structured_light;general;opencv_tracking;general;opencv_xfeatures2d;general;opencv_ximgproc;general;opencv_aruco;general;opencv_bgsegm;general;opencv_face;general;-Wl,-no-whole-archive;general;dl;general;m;general;log;general;tbb;general;jnigraphics;general;log;general;dl;general;z;
+opencv_java_LIB_DEPENDS:STATIC=general;-Wl,-whole-archive;general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_phase_unwrapping;general;opencv_photo;general;opencv_plot;general;opencv_video;general;opencv_xphoto;general;opencv_dnn;general;opencv_img_hash;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_bioinspired;general;opencv_features2d;general;opencv_text;general;opencv_calib3d;general;opencv_datasets;general;opencv_structured_light;general;opencv_tracking;general;opencv_xfeatures2d;general;opencv_ximgproc;general;opencv_aruco;general;opencv_bgsegm;general;opencv_face;general;-Wl,-no-whole-archive;general;dl;general;m;general;log;general;ippiw;general;ippicv;general;jnigraphics;general;log;general;dl;general;z;
 
 //Value Computed by CMake
 opencv_java_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/java/jni
@@ -1284,7 +1300,7 @@ opencv_java_bindings_generator_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-androi
 opencv_line_descriptor_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/line_descriptor
 
 //Dependencies for the target
-opencv_line_descriptor_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;tbb;
+opencv_line_descriptor_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_line_descriptor_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/line_descriptor
@@ -1293,7 +1309,7 @@ opencv_line_descriptor_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-wi
 opencv_ml_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/ml
 
 //Dependencies for the target
-opencv_ml_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;tbb;
+opencv_ml_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_ml_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/ml
@@ -1302,7 +1318,7 @@ opencv_ml_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/op
 opencv_objdetect_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/objdetect
 
 //Dependencies for the target
-opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_objdetect_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/objdetect
@@ -1311,7 +1327,7 @@ opencv_objdetect_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-con
 opencv_optflow_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/optflow
 
 //Dependencies for the target
-opencv_optflow_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_ximgproc;general;dl;general;m;general;log;general;tbb;
+opencv_optflow_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_ximgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_optflow_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/optflow
@@ -1320,7 +1336,7 @@ opencv_optflow_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contr
 opencv_phase_unwrapping_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/phase_unwrapping
 
 //Dependencies for the target
-opencv_phase_unwrapping_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_phase_unwrapping_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_phase_unwrapping_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/phase_unwrapping
@@ -1329,7 +1345,7 @@ opencv_phase_unwrapping_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-w
 opencv_photo_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/photo
 
 //Dependencies for the target
-opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_photo_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/photo
@@ -1338,7 +1354,7 @@ opencv_photo_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib
 opencv_plot_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/plot
 
 //Dependencies for the target
-opencv_plot_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_plot_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_plot_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/plot
@@ -1353,7 +1369,7 @@ opencv_python_bindings_generator_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-andr
 opencv_reg_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/reg
 
 //Dependencies for the target
-opencv_reg_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_reg_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_reg_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/reg
@@ -1362,7 +1378,7 @@ opencv_reg_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/o
 opencv_rgbd_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/rgbd
 
 //Dependencies for the target
-opencv_rgbd_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_rgbd_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_rgbd_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/rgbd
@@ -1371,7 +1387,7 @@ opencv_rgbd_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/
 opencv_saliency_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/saliency
 
 //Dependencies for the target
-opencv_saliency_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;tbb;
+opencv_saliency_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_saliency_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/saliency
@@ -1380,7 +1396,7 @@ opencv_saliency_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-cont
 opencv_shape_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/shape
 
 //Dependencies for the target
-opencv_shape_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;dl;general;m;general;log;general;tbb;
+opencv_shape_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_shape_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/shape
@@ -1389,7 +1405,7 @@ opencv_shape_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib
 opencv_stereo_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/stereo
 
 //Dependencies for the target
-opencv_stereo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_stereo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_stereo_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/stereo
@@ -1398,7 +1414,7 @@ opencv_stereo_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contri
 opencv_stitching_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/stitching
 
 //Dependencies for the target
-opencv_stitching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_xfeatures2d;general;dl;general;m;general;log;general;tbb;
+opencv_stitching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;opencv_xfeatures2d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_stitching_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/stitching
@@ -1407,7 +1423,7 @@ opencv_stitching_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-con
 opencv_structured_light_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/structured_light
 
 //Dependencies for the target
-opencv_structured_light_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_phase_unwrapping;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_structured_light_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_phase_unwrapping;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_structured_light_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/structured_light
@@ -1416,7 +1432,7 @@ opencv_structured_light_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-w
 opencv_superres_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/superres
 
 //Dependencies for the target
-opencv_superres_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;dl;general;m;general;log;general;tbb;
+opencv_superres_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_superres_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/superres
@@ -1425,7 +1441,7 @@ opencv_superres_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-cont
 opencv_surface_matching_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/surface_matching
 
 //Dependencies for the target
-opencv_surface_matching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;dl;general;m;general;log;general;tbb;
+opencv_surface_matching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_surface_matching_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/surface_matching
@@ -1440,7 +1456,7 @@ opencv_test_java_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-con
 opencv_text_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/text
 
 //Dependencies for the target
-opencv_text_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;tbb;
+opencv_text_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_text_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/text
@@ -1449,7 +1465,7 @@ opencv_text_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/
 opencv_tracking_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/tracking
 
 //Dependencies for the target
-opencv_tracking_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_plot;general;opencv_video;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_text;general;opencv_datasets;general;dl;general;m;general;log;general;tbb;
+opencv_tracking_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_plot;general;opencv_video;general;opencv_dnn;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_text;general;opencv_datasets;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_tracking_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/tracking
@@ -1458,7 +1474,7 @@ opencv_tracking_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-cont
 opencv_ts_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/ts
 
 //Dependencies for the target
-opencv_ts_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;tbb;
+opencv_ts_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_ts_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/ts
@@ -1467,7 +1483,7 @@ opencv_ts_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/op
 opencv_video_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/video
 
 //Dependencies for the target
-opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_video_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/video
@@ -1476,7 +1492,7 @@ opencv_video_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib
 opencv_videoio_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/videoio
 
 //Dependencies for the target
-opencv_videoio_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;dl;general;m;general;log;general;tbb;
+opencv_videoio_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_videoio_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/videoio
@@ -1485,7 +1501,7 @@ opencv_videoio_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contr
 opencv_videostab_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/videostab
 
 //Dependencies for the target
-opencv_videostab_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_photo;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_videostab_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_photo;general;opencv_video;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_videostab_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/modules/videostab
@@ -1494,7 +1510,7 @@ opencv_videostab_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-con
 opencv_xfeatures2d_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/xfeatures2d
 
 //Dependencies for the target
-opencv_xfeatures2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_xfeatures2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_ml;general;opencv_video;general;opencv_imgcodecs;general;opencv_shape;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_xfeatures2d_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/xfeatures2d
@@ -1503,7 +1519,7 @@ opencv_xfeatures2d_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-c
 opencv_ximgproc_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/ximgproc
 
 //Dependencies for the target
-opencv_ximgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tbb;
+opencv_ximgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;opencv_highgui;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_ximgproc_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/ximgproc
@@ -1512,7 +1528,7 @@ opencv_ximgproc_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-cont
 opencv_xobjdetect_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/xobjdetect
 
 //Dependencies for the target
-opencv_xobjdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_objdetect;general;opencv_imgcodecs;general;dl;general;m;general;log;general;tbb;
+opencv_xobjdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_objdetect;general;opencv_imgcodecs;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_xobjdetect_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/xobjdetect
@@ -1521,7 +1537,7 @@ opencv_xobjdetect_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-co
 opencv_xphoto_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/xphoto
 
 //Dependencies for the target
-opencv_xphoto_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tbb;
+opencv_xphoto_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;ippiw;general;ippicv;
 
 //Value Computed by CMake
 opencv_xphoto_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv_contrib/modules/xphoto
@@ -1534,15 +1550,6 @@ openexr_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/open
 
 //support for Macintosh PackBits algorithm
 packbits:BOOL=ON
-
-//Value Computed by CMake
-tbb_BINARY_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/tbb
-
-//Dependencies for the target
-tbb_LIB_DEPENDS:STATIC=general;c;general;m;general;dl;
-
-//Value Computed by CMake
-tbb_SOURCE_DIR:STATIC=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/sources/3rdparty/tbb
 
 //support for ThunderScan 4-bit RLE algorithm
 thunder:BOOL=ON
@@ -1708,7 +1715,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=139
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=156
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1871,7 +1878,7 @@ C_HAS_inline:INTERNAL=1
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[D:/ProgramData/Anaconda3/python.exe][v3.6.4(3.4)]
 //Details about finding ZLIB
-FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-21/arch-x86/usr/lib/libz.so][D:/ProgramData/Android/SDK/ndk-bundle/sysroot/usr/include][v1.2.3(1.2.3)]
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-9/arch-x86/usr/lib/libz.so][D:/ProgramData/Android/SDK/ndk-bundle/platforms/android-9/arch-x86/usr/include][v1.2.3(1.2.3)]
 //ADVANCED property for variable: GFLAGS_INCLUDE_DIR
 GFLAGS_INCLUDE_DIR-ADVANCED:INTERNAL=0
 //ADVANCED property for variable: GFLAGS_NAMESPACE
@@ -2147,7 +2154,7 @@ HAVE_IO_H:INTERNAL=
 //Have function isascii
 HAVE_ISASCII:INTERNAL=1
 //Have function lfind
-HAVE_LFIND:INTERNAL=1
+HAVE_LFIND:INTERNAL=
 //Have include limits.h
 HAVE_LIMITS_H:INTERNAL=1
 //Have include malloc.h
@@ -2163,7 +2170,7 @@ HAVE_MEMSET:INTERNAL=1
 //Have function mmap
 HAVE_MMAP:INTERNAL=1
 //Have symbol posix_memalign
-HAVE_POSIX_MEMALIGN:INTERNAL=1
+HAVE_POSIX_MEMALIGN:INTERNAL=
 //Have include semaphore.h
 HAVE_POSIX_SEMAPHORES:INTERNAL=1
 //Have function pow
@@ -2171,7 +2178,7 @@ HAVE_POW:INTERNAL=1
 //Have include pthread.h
 HAVE_PTHREAD:INTERNAL=1
 //Have include search.h
-HAVE_SEARCH_H:INTERNAL=1
+HAVE_SEARCH_H:INTERNAL=
 //Have function setmode
 HAVE_SETMODE:INTERNAL=
 //Result of TRY_COMPILE
@@ -2390,8 +2397,10 @@ HAVE_opencv_xphoto:INTERNAL=ON
 HOST_BIG_ENDIAN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: HOST_FILLORDER
 HOST_FILLORDER-ADVANCED:INTERNAL=1
+IPPICV_INSTALL_PATH:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/install/sdk/native/3rdparty/libs/x86/libippicv.a
+IPPICV_LOCATION_PATH:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/ippicv/ippicv_lnx/lib/ia32/libippicv.a
 OCV_DOWNLOAD_DATA_HASH_sdk_etc_testdata_cv_face_face_landmark_model_dat:INTERNAL=7505c44ca4eb54b4ab1e4777cb96ac05
-OCV_DOWNLOAD_TBB_HASH_3rdparty_tbb_2018_U1_tar_gz:INTERNAL=b2f2fa09adf44a22f4024049907f774b
+OCV_DOWNLOAD_IPPICV_HASH_3rdparty_ippicv_ippicv_2017u3_lnx_ia32_general_20170822_tgz:INTERNAL=dcdb0ba4b123f240596db1840cd59a76
 OCV_DOWNLOAD_TINY_DNN_HASH_3rdparty_tinydnn_v1_0_0a3_tar_gz:INTERNAL=adb1c512e09ca2c7a6faef36f9c53e59
 OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_bgm_bi_i:INTERNAL=232c966b13651bd0e46a1497b0852191
 OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_bgm_hd_i:INTERNAL=324426a24fa56ad9c5b8e3e0b3e5303e
@@ -2404,6 +2413,10 @@ OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_120_i:INTE
 OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_48_i:INTERNAL=e8d0dcd54d1bcfdc29203d011a797179
 OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_64_i:INTERNAL=7126a5d9a8884ebca5aea5d63d677225
 OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_80_i:INTERNAL=7cd47228edec52b6d82f46511af325c5
+//ADVANCED property for variable: OPENCL_INCLUDE_DIR
+OPENCL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENCL_LIBRARY
+OPENCL_LIBRARY-ADVANCED:INTERNAL=1
 OPENCV_ANDROID_LIB_DIR:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/android_sdk
 OPENCV_DEPHELPER:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/CMakeFiles/dephelper
 OPENCV_JAVA_BINDINGS_DIR:INTERNAL=D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/modules/java_bindings_generator
@@ -3981,7 +3994,7 @@ OPENCV_PYTHON_SIGNATURES_FILE:INTERNAL=D:/ProgramData/opencv341-android-sdk-with
 //List of OpenCV modules included into the world
 OPENCV_WORLD_MODULES:INTERNAL=
 //List of OpenCVModules targets
-OpenCVModules_TARGETS:INTERNAL=libcpufeatures;libjpeg;libtiff;libwebp;libjasper;libpng;IlmImf;tbb;libprotobuf;ittnotify;opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_reg;opencv_surface_matching;opencv_video;opencv_xphoto;opencv_dnn;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_xobjdetect;opencv_highgui;opencv_superres;opencv_bioinspired;opencv_dnn_objdetect;opencv_dpm;opencv_features2d;opencv_line_descriptor;opencv_saliency;opencv_text;opencv_calib3d;opencv_ccalib;opencv_datasets;opencv_rgbd;opencv_stereo;opencv_structured_light;opencv_tracking;opencv_videostab;opencv_xfeatures2d;opencv_ximgproc;opencv_aruco;opencv_bgsegm;opencv_face;opencv_java;opencv_optflow;opencv_stitching
+OpenCVModules_TARGETS:INTERNAL=libcpufeatures;libjpeg;libtiff;libwebp;libjasper;libpng;IlmImf;ippiw;libprotobuf;ittnotify;opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_reg;opencv_surface_matching;opencv_video;opencv_xphoto;opencv_dnn;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_imgcodecs;opencv_shape;opencv_videoio;opencv_xobjdetect;opencv_highgui;opencv_superres;opencv_bioinspired;opencv_dnn_objdetect;opencv_dpm;opencv_features2d;opencv_line_descriptor;opencv_saliency;opencv_text;opencv_calib3d;opencv_ccalib;opencv_datasets;opencv_rgbd;opencv_stereo;opencv_structured_light;opencv_tracking;opencv_videostab;opencv_xfeatures2d;opencv_ximgproc;opencv_aruco;opencv_bgsegm;opencv_face;opencv_java;opencv_optflow;opencv_stitching
 PYTHON2INTERP_FOUND:INTERNAL=TRUE
 PYTHON2LIBS_FOUND:INTERNAL=
 PYTHON2LIBS_VERSION_STRING:INTERNAL=
@@ -4027,12 +4040,6 @@ SIZEOF_UNSIGNED_LONG:INTERNAL=4
 SIZEOF_UNSIGNED_LONG_LONG:INTERNAL=8
 //CHECK_TYPE_SIZE: sizeof(unsigned short)
 SIZEOF_UNSIGNED_SHORT:INTERNAL=2
-//TBB_INTERFACE_VERSION parsed from D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/tbb/tbb-2018_U1/include/tbb/tbb_stddef.h
-TBB_INTERFACE_VERSION:INTERNAL=10001
-//TBB_VERSION_MAJOR parsed from D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/tbb/tbb-2018_U1/include/tbb/tbb_stddef.h
-TBB_VERSION_MAJOR:INTERNAL=2018
-//TBB_VERSION_MINOR parsed from D:/ProgramData/opencv341-android-sdk-with-contrib/opencv/build/3rdparty/tbb/tbb-2018_U1/include/tbb/tbb_stddef.h
-TBB_VERSION_MINOR:INTERNAL=0
 //Result of TEST_BIG_ENDIAN
 WORDS_BIGENDIAN:INTERNAL=0
 //ADVANCED property for variable: ZLIB_INCLUDE_DIR
@@ -4041,8 +4048,10 @@ ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
 ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+__VALID_OPENCL:INTERNAL=FALSE
 //auxiliary variable used for Android progects chaining
-__android_project_chain:INTERNAL=opencv_test_java
+__android_project_chain:INTERNAL=example-tutorial-3-cameracontrol
 //Result of TEST_BIG_ENDIAN
 bigendian:INTERNAL=0
 //CHECK_TYPE_SIZE: INT16 unknown
