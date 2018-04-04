@@ -172,7 +172,7 @@
 /* #undef HAVE_QTKIT */
 
 /* Intel Threading Building Blocks */
-#define HAVE_TBB
+/* #undef HAVE_TBB */
 
 /* TIFF codec */
 #define HAVE_TIFF
