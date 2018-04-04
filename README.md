@@ -6,7 +6,7 @@ opencv341 android sdk with contrib341 module build on windows.
 工作需要，目前主要编译了armeabi-v7a和x86的.so库.a库，主要用于jni编程，附带java应用层函数。
 
 
-## A templet build.gradle for armeabi-v7a with NDK
+## A templet build.gradle for armeabi-v7a and x86 with NDK
 
 ```
 apply plugin: 'com.android.library'
