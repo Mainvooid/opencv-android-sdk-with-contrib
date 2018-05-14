@@ -9,7 +9,7 @@ opencv341 android sdk with contrib341 module build on windows.
 
 Refer to [build opencv3.4.1 android sdk+contrib on windows](https://me.aimao.co/2018/04/build-opencv3-4-1-android-sdkcontrib-on-windows/ "build opencv3.4.1 android sdk+contrib on windows")
 
-## How to Use in your Android project
+## How to use in your android project
 
 you can refer to \Android.mk and \Application.mk
 and see [Android Studio JNI层调用OpenCV进行图像处理](https://me.aimao.co/2018/03/android-studio-jni-opencv/ "Android Studio JNI层调用OpenCV进行图像处理")
