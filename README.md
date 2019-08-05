@@ -4,6 +4,7 @@ opencv341 android sdk with contrib341 module build on windows.
 **Note:Recent versions of OpenCV should be easier to build the android-sdk with contrib， so try the latest version of OpenCV first.**
 
 Work needs, currently mainly compiled armeabi-v7a, x86, arm64-v8a, .so library,.a library, mainly used for jni programming, with Java application layer functions, and has added OPENCL support.
+see [Release](https://github.com/Mainvooid/opencv-android-sdk-with-contrib/releases)
 
 ## How to build yourself on windows.
 
