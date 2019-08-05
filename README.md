@@ -1,9 +1,9 @@
 # opencv-android-sdk-with-contrib
 opencv341 android sdk with contrib341 module build on windows.
 
-天知道在windows上编译这俩个库要趟过多少坑。
+**Note:Recent versions of OpenCV should be easier to build the android-sdk with contrib， so try the latest version of OpenCV first.**
 
-工作需要，目前主要编译了armeabi-v7a、x86、arm64-v8a的.so库.a库，主要用于jni编程，附带java应用层函数，并且已添加OPENCL支持。
+Work needs, currently mainly compiled armeabi-v7a, x86, arm64-v8a, .so library,.a library, mainly used for jni programming, with Java application layer functions, and has added OPENCL support.
 
 ## How to build yourself on windows.
 
